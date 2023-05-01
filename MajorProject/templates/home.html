@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="d-flex justify-content-center form_container">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            Welcome to ETA(Emergency Tweet Analyzer) this website was designed as a tool to help filter through text in order to classify
+            the text as either "Disaster!" or "Non Disaster!"
+            To do this a popular Machine Learning model, Multi Nomial Naive Bayes was trained which makes use of the Bayes theorem which states that the probability of an event,
+            based on the occurence of another event is equal to the likelihood of the second event given the first event.
+        </div>
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            To use this tool simply drag and drop a csv file containing tweets into the file uploader below, and then you will see the output on the dashboard after we apply the predictions, the output will be in the form of a table with the Predictions column denoting whether the
+            message is a Disaster or Not a Disaster. Please assure that the column in the dataset containing the tweet message is titled as "text".
+        </div>
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            The dataset that was used for training the model was attained from Kaggle Datasets on Disaster Tweets, <a href="https://www.kaggle.com/datasets/vstepanenko/disaster-tweets">kaggle/dataset</a>
+            . The Naive Bayes model was trained to perform with 92% Accuracy and was cross validated against a Passive Aggressive Classifier model built on the same data set.
+            During cross-validation, both models were validated using KFold to split the data into train and test data with 10 splits, see below the scores achieved for both models.
+            <img src="{% static 'images/cross-val.PNG' %}" style="width: 120%;height: auto" alt="Logo">
+        </div>
+
+    </div>
+
+    <h2 style="text-align: center">Upload CSV file</h2>
+    <div class="d-flex justify-content-center form_container">
+        <form action="csv_upload" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group">
+                <div>
+                    <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <button type = 'submit' style="background-color: #b6bfcc; border-radius: 0.8rem">Upload</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+        <button style="background-color: #b6bfcc; border-radius: 0.8rem"><a href={% url 'logout' %}>Logout</a></button>
+
+{% endblock content %}

@@ -1,0 +1,58 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #333333;
+    color: white;
+}
+.card {
+    width: 450px;
+    height: 500px;
+    background: rgba(52, 95, 189, 0.7);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 10px;
+    border: dashed;
+
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.active{
+    color: cornflowerblue !important;
+}
+.form_container {
+    margin-top: 50px;
+}
+
+#form-title{
+    color: #fff;
+}
+.login_btn {
+    width: 100%;
+    background: #33ccff;
+    color: white;
+}
+.login_btn:focus {
+    box-shadow: none;
+    outline: 0px;
+}
+.login_container {
+    padding: 0 2rem;
+}
+.input-group-text {
+    background: #f7ba5b;
+    color: white;
+    border: 0;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+h1{
+    color:lightgrey !important;
+}
+

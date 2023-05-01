@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <section>
+        <div id="tables-container">
+        <div id="table-wrapper">
+          <table id="table-1" class="table table-striped">
+              <h1 style="text-align: center">Table of Tweets Information and Predictions</h1>
+            {{ data|safe }}
+          </table>
+        </div>
+        </div>
+        <style>
+           #table-wrapper {
+            width: 60%;
+            height: 500px;
+            overflow: auto;
+            margin-left: 20%;
+          }
+          table {
+            width: 100%;
+
+            border-collapse: collapse;
+            margin-top: 0;
+          }
+          td, th {
+            padding: 4px;
+            font-size: 14px;
+          }
+        </style>
+        <button style="background-color: #b6bfcc; border-radius: 0.8rem"><a href={% url 'logout' %}>Logout</a></button>
+    </section>
+{% endblock content %}
